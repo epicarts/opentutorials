@@ -5,6 +5,7 @@ import codecs
 import cgi#common Gateway Interface
 import cgitb
 
+
 #print hangul
 cgitb.enable()
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
@@ -15,6 +16,15 @@ print('\n')
 form = cgi.FieldStorage()
 print(form)
 print('\n')
+
+def getlist():
+    files = os.listdir('data')
+    print(files)
+    list_str =''
+    for item in files:
+        list_str = list_str + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
+    return list_str
+
 if 'id' in form:
     pageId = form["id"].value
     description = open('data/'+pageId, 'r').read()
@@ -33,11 +43,6 @@ else:#without id
     delete_action =''
 
 
-files = os.listdir('data')
-print(files)
-list_str =''
-for item in files:
-    list_str = list_str + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
 
 
 print('''<!doctype html>
@@ -76,4 +81,5 @@ print('''<!doctype html>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
-'''.format(title=pageId, desc=description, list=list_str, update_link=update_link,delete_action=delete_action))#print end
+'''.format(title=pageId, desc=description, list=getlist(),
+           update_link=update_link,delete_action=delete_action))#print end
