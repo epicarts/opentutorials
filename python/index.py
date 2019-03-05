@@ -5,6 +5,10 @@ import codecs
 import cgi#common Gateway Interface
 import cgitb
 import view
+import html_sanitizer
+
+sanitizer = html_sanitizer.Sanitizer()
+
 
 #print hangul
 cgitb.enable()
@@ -21,6 +25,10 @@ print('\n')
 if 'id' in form:
     pageId = form["id"].value
     description = open('data/'+pageId, 'r').read()
+    #description secure
+    #description = description.replace('<', '&lt;')
+    #description = description.replace('<', '&gt;')
+    description = sanitizer.sanitize(description)
     #update 값이 있다면 업데이트 링크 생성
     update_link = '<a href="update.py?id={}">update</a>'.format(pageId)
     delete_action = '''
