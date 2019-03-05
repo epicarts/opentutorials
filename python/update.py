@@ -4,6 +4,8 @@ import sys, os
 import codecs
 import cgi#common Gateway Interface
 import cgitb
+import view
+
 
 #print hangul
 cgitb.enable()
@@ -23,11 +25,6 @@ else:#without id
     description = 'Hello web'
 
 
-files = os.listdir('data')
-print(files)
-list_str =''
-for item in files:
-    list_str = list_str + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
 
 
 print('''<!doctype html>
@@ -70,4 +67,4 @@ print('''<!doctype html>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
-'''.format(title=pageId, desc=description, list=list_str, form_default_title=pageId, form_default_description=description))#print end
+'''.format(title=pageId, desc=description, list=view.getlist(), form_default_title=pageId, form_default_description=description))#print end

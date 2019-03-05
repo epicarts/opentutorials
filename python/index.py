@@ -4,7 +4,7 @@ import sys, os
 import codecs
 import cgi#common Gateway Interface
 import cgitb
-
+import view
 
 #print hangul
 cgitb.enable()
@@ -17,13 +17,6 @@ form = cgi.FieldStorage()
 print(form)
 print('\n')
 
-def getlist():
-    files = os.listdir('data')
-    print(files)
-    list_str =''
-    for item in files:
-        list_str = list_str + '<li><a href="index.py?id={name}">{name}</a></li>'.format(name=item)
-    return list_str
 
 if 'id' in form:
     pageId = form["id"].value
@@ -81,5 +74,5 @@ print('''<!doctype html>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
-'''.format(title=pageId, desc=description, list=getlist(),
+'''.format(title=pageId, desc=description, list=view.getlist(),
            update_link=update_link,delete_action=delete_action))#print end
