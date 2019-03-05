@@ -18,19 +18,9 @@ print('\n')
 if 'id' in form:
     pageId = form["id"].value
     description = open('data/'+pageId, 'r').read()
-    #update 값이 있다면 업데이트 링크 생성
-    update_link = '<a href="update.py?id={}">update</a>'.format(pageId)
-    delete_action = '''
-            <form action="process_delete.py" method="post">
-                <input type="hidden" name="pageId" value="{}">
-                <input type="submit" value="delete">
-            </form>
-        '''.format(pageId)
 else:#without id
     pageId = 'Welcome'
     description = 'Hello web'
-    update_link =''#id 값이 없다면 update 필요없음.
-    delete_action =''
 
 
 files = os.listdir('data')
@@ -55,8 +45,12 @@ print('''<!doctype html>
 
   <a href="create.py">create</a>
 
-  {update_link}
-  {delete_action}
+  <form action="process_update.py" method="post">
+      <input type="hidden" name="pageId" value="{form_default_title}">
+      <p><input type="text" name="title" placeholder="제목" value={form_default_title}></p>
+      <p><textarea rows="4" name="description" placeholder="내용">{form_default_description}</textarea></p>
+      <p><input type="submit"></p>
+  </form>
 
   <h2>{title}</h2>
   <p>이페이지는 웹 페이지 입니다</p>
@@ -76,4 +70,4 @@ print('''<!doctype html>
   <iframe width="560" height="315" src="https://www.youtube.com/embed/7T7r_oSp0SE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </body>
 </html>
-'''.format(title=pageId, desc=description, list=list_str, update_link=update_link,delete_action=delete_action))#print end
+'''.format(title=pageId, desc=description, list=list_str, form_default_title=pageId, form_default_description=description))#print end

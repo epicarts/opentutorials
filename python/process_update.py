@@ -10,12 +10,18 @@ cgitb.enable()
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 form = cgi.FieldStorage()
+pageId = form["pageId"].value
 title = form["title"].value
 description = form['description'].value
 
-
-opend_file = open('data/'+title, 'w')
+#변경된 파일 저장
+opend_file = open('data/'+pageId, 'w')
 opend_file.write(description)
+opend_file.close()
+
+#파일이름 변경
+os.rename('data/'+ pageId, 'data/'+ title)
+
 
 
 #print("content-type:text/html; charset=UTF-8\n")

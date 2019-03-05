@@ -10,16 +10,10 @@ cgitb.enable()
 sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 form = cgi.FieldStorage()
-title = form["title"].value
-description = form['description'].value
+pageId = form["pageId"].value
+os.remove('data/'+pageId)
 
 
-opend_file = open('data/'+title, 'w')
-opend_file.write(description)
-
-
-#print("content-type:text/html; charset=UTF-8\n")
-
-#redirection
-print("Location: index.py?id="+title)
+#redirection main page
+print("Location: index.py")
 print()
