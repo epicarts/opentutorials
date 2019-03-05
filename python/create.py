@@ -45,6 +45,12 @@ print('''<!doctype html>
 
   <a href="create.py">create</a>
 
+  <form action="process_create.py" method="post">
+      <p><input type="text" name="title" placeholder="제목"></p>
+      <p><textarea rows="4" name="description" placeholder="내용"></textarea></p>
+      <p><input type="submit"></p>
+  </form>
+
   <h2>{title}</h2>
   <p>이페이지는 웹 페이지 입니다</p>
   <p>{desc}</p>
