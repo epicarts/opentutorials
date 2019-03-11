@@ -23,11 +23,12 @@ print('\n')
 
 
 if 'id' in form:
-    pageId = form["id"].value
+    title = pageId = form["id"].value
     description = open('data/'+pageId, 'r').read()
     #description secure
     #description = description.replace('<', '&lt;')
-    #description = description.replace('<', '&gt;')
+    #description = description.replace('<', '&gt;')\
+    title = sanitizer.sanitize(title)
     description = sanitizer.sanitize(description)
     #update 값이 있다면 업데이트 링크 생성
     update_link = '<a href="update.py?id={}">update</a>'.format(pageId)
@@ -38,7 +39,7 @@ if 'id' in form:
             </form>
         '''.format(pageId)
 else:#without id
-    pageId = 'Welcome'
+    title = pageId = 'Welcome'
     description = 'Hello web'
     update_link =''#id 값이 없다면 update 필요없음.
     delete_action =''
