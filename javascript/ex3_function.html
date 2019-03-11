@@ -15,7 +15,51 @@
       color:blue;
     }
   </style>
+<script>
+  var Body ={
+    setColor:function (color){
+      document.querySelector('body').style.color = color;
+    },
+    setBackgroundColor:function (color){
+      document.querySelector('body').style.backgroundColor = color;
+    }
+  }
+  function LinksSetColor(color){
+    var x = document.querySelectorAll('a');
+    var i = 0
+    while(i < x.length){
+        console.log(x[i]);
+      x[i].style.color = color;
+      i = i + 1
+    }
+  }
 
+  function BodySetColor(color){
+    document.querySelector('body').style.color = color;
+  }
+  function BodySetbackgroundColor(color){
+    document.querySelector('body').style.backgroundColor = color;
+  }
+
+  function nightDayHandler(self){
+    var target = document.querySelector('body')
+    if(self.value == 'night'){
+      BodySetbackgroundColor('black');
+      BodySetColor('white');
+      self.value = 'day'
+
+      LinksSetColor('powderblue')
+
+    } else {
+      BodySetbackgroundColor('white');
+      BodySetColor('black');
+      self.value = 'night'
+
+      LinksSetColor('blue')
+
+      }
+    }
+</script>
 </head>
 
 <body>
@@ -40,34 +84,7 @@
     }
   ">
 
-  <input type="button" value="night" onclick="
-    var target = document.querySelector('body')
-    if(this.value == 'night'){
-      target.style.backgroundColor = 'black';
-      target.style.color = 'white';
-      this.value = 'day'
-
-      var x = document.querySelectorAll('a');
-      var i = 0
-      while(i < x.length){
-          console.log(x[i]);
-      	x[i].style.color = 'powderblue';
-      	i = i + 1
-      }
-    } else {
-      target.style.backgroundColor = 'white';
-      target.style.color = 'black';
-      this.value = 'night'
-
-      var x = document.querySelectorAll('a');
-      var i = 0
-      while(i < x.length){
-          console.log(x[i]);
-      	x[i].style.color = 'blue';
-      	i = i + 1
-      }
-    }
-  ">
+  <input type="button" value="night" onclick="nightDayHandler(this);">
 
 
 

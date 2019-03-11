@@ -1,65 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>WEB1 - JavaScript</title>
-  <meta charset="utf-8">
-  <style>
-    .js{
-      font-weight: bold;
-      color:red;
-    }
-    #first{
-      color:green;
-    }
-    span{
-      color:blue;
-    }
-  </style>
-</head>
-
-<body>
-  <h1><a href="index.html">WEB</a></h1>
-  <ul>
-    <li><a href="1.html">1. HTML</a></li>
-    <li><a href="2.html">2. CSS</a></li>
-    <li><a href="3.html">3. JavaScript</a></li>
-  </ul>
-
-  <h2 style="color:powderblue">JavaScript</h2>
-
-  <input id="night_day" type="button" value="night" onclick="
-    if(document.querySelector('#night_day').value == 'night'){
-      document.querySelector('body').style.backgroundColor = 'black';
-      document.querySelector('body').style.color = 'white';
-      document.querySelector('#night_day').value = 'day'
-    } else {
-      document.querySelector('body').style.backgroundColor = 'white';
-      document.querySelector('body').style.color = 'black';
-      document.querySelector('#night_day').value = 'night'
-    }
-  ">
-
-
-
-
-
-  <p style="background-color: coral;">이 페이지는 <strong>자바</strong> 스크립트 <u>페이지</u> 입니다</p>
-  <p>
-    <span id="first" class="js">JavaScript</span>(JS)는 가벼운 인터프리터형 또는 JIT-컴파일형 프로그래밍 언어로, first-class functions를 지원합니다. 주로 웹 페이지를 위한 스크립팅 언어로 알려졌지만, Node.js, Apache CouchDB, Adobe Acrobat처럼 많은 비 브라우저 환경에서도 사용됩니다. <span class = "js">JavaScript</span>는 프로토타입 기반의 다중 패러다임 스크립팅 언어로서, 역동적이고, 객체지향형, 명령형 및 선언형(가령 함수형 프로그래밍) 스타일을 지원합니다. 자세한 내용은 <span class = "js">JavaScript</span>에 대하여를 참고하세요.
-이 문서는 <span class = "js">JavaScript</span> 언어 자체만 다루며 웹 페이지를 비롯한 다른 사용 환경에 대해서는 다루지 않습니다. 웹 페이지의 특정 API에 대하여 알고 싶다면 웹 API와 DOM을 참고하시기 바랍니다.
-<span class = "js">JavaScript</span>의 표준은 <span><span>ECMAScript</span></span>입니다. 2012년 기준 최신 브라우저는 모두 <span>ECMAScript</span> 5.1을 전부 지원합니다. 이전 브라우저의 경우는 최소한 <span>ECMAScript</span> 3까지는 지원합니다. 2015년 6월 17일 ECMA International에서는 공식명 <span>ECMAScript</span> 2015 로 불리는 <span>ECMAScript</span>의 6번째 주 버전을 발표했습니다(보통 <span>ECMAScript</span> 6 혹은 ES6으로 불립니다). 그 이후 <span>ECMAScript</span> 표준은 출시가 1년 주기입니다. 이 문서는 최신 초안 버전(현재 <span>ECMAScript</span> 2019)에 기반을 둡니다.
-<span class = "js">JavaScript</span>를 Java 프로그래밍 언어와 혼동해서는 안 됩니다. "Java"와 "<span class = "js">JavaScript</span>" 두 가지 모두 Oracle이 미국 및 기타 국가에 등록한 상표입니다. 하지만, 두 언어는 문법 체계와 사용방법이 전혀 다릅니다.
-  </p>
-
-  <table>
-    <tr>
-      <td>head</td>
-      <td>98.1%</td>
-    </tr>
-    <tr>
-      <td>body</td>
-      <td>97.9</td>
-    </tr>
-  </table>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="background-color:black;color:white">
+    <h1>JavaScript</h1>
+    <script>
+      document.write('hello world')
+      document.write(1 + 1 + 2)
+    </script>
+    <h1>html</h1>
+    hello world
+    1 + 1 + 2
+    <input type="button" value="hi" onclick="alert('hello')">
+    <input type="text" onchange="alert('changed!!')">
+    <input type="text" onkeydown="alert('keydown now!!')">
+  </body>
 </html>
