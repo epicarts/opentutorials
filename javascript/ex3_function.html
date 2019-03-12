@@ -16,14 +16,6 @@
     }
   </style>
 <script>
-  var Body ={
-    setColor:function (color){
-      document.querySelector('body').style.color = color;
-    },
-    setBackgroundColor:function (color){
-      document.querySelector('body').style.backgroundColor = color;
-    }
-  }
   function LinksSetColor(color){
     var x = document.querySelectorAll('a');
     var i = 0
@@ -33,26 +25,27 @@
       i = i + 1
     }
   }
-
-  function BodySetColor(color){
-    document.querySelector('body').style.color = color;
-  }
-  function BodySetbackgroundColor(color){
-    document.querySelector('body').style.backgroundColor = color;
+  var Body = {
+    SetColor:function(color){
+      document.querySelector('body').style.color = color;
+    },
+    SetbackgroundColor:function(color){
+      document.querySelector('body').style.backgroundColor = color;
+    }
   }
 
   function nightDayHandler(self){
     var target = document.querySelector('body')
     if(self.value == 'night'){
-      BodySetbackgroundColor('black');
-      BodySetColor('white');
+      Body.SetbackgroundColor('black');
+      Body.SetColor('white');
       self.value = 'day'
 
       LinksSetColor('powderblue')
 
     } else {
-      BodySetbackgroundColor('white');
-      BodySetColor('black');
+      Body.SetbackgroundColor('white');
+      Body.SetColor('black');
       self.value = 'night'
 
       LinksSetColor('blue')
